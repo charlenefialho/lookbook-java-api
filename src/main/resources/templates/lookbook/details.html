@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Detalhes do Lookbook</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <style>
+
+<head th:replace="fragments :: head(title='Detalhes do Lookbook')">
+	<style>
         .clothing-item-img {
             width: 200px;
             height: auto; 
