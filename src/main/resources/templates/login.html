@@ -1,0 +1,28 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments :: head(title='Login')"></head>
+<body>
+	<div class="container">
+		<h1>
+			<b><span th:text="#{nome_sistema}">Sistema de Futebol</span></b>
+		</h1>
+		
+		<div th:if="${param.logout}">
+			<p style="color: green;"><b>Você saiu com sucesso</b>></p>
+		</div>
+		
+		<form th:action="@{/login}" method="post">
+			<span th:text="#{usuario_sistema}">Usuário:</span> <input class="form-control" type="text" id="username" name="username"><br>
+			<span th:text="#{senha_sistema}">Senha:</span> <input class="form-control" type="password" id="password" name="password"><br>
+			
+			<div th:if="${param.falha}">
+				<p style="color: red;"><b>Usuário e/ou senha inválidos</b></p>
+			</div>
+			
+			<button type="submit"><span th:text="#{botao_logar}">Confirmar</span></button>
+		</form>
+
+	</div>
+</body>
+</html>
