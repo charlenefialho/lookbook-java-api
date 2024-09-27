@@ -52,12 +52,39 @@ public class Lookbook {
 	            ", nome='" + nome + '\'' +
 	            '}';
 	}
-	
-    public double getValorTotal() {
-        return clothingItems.stream()
-            .mapToDouble(ClothingItem::getPreco)
-            .sum();
-    }
 
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getNome() {
+		return nome;
+	}
+
+	public void setNome(String nome) {
+		this.nome = nome;
+	}
+
+	public LocalDate getDataCriacao() {
+		return dataCriacao;
+	}
+
+	public void setDataCriacao(LocalDate dataCriacao) {
+		this.dataCriacao = dataCriacao;
+	}
+
+	public List<ClothingItem> getClothingItems() {
+		return clothingItems;
+	}
+
+	public void setClothingItems(List<ClothingItem> clothingItems) {
+		this.clothingItems = clothingItems;
+	}
+	
+	
 
 }
