@@ -16,7 +16,7 @@ public class SecurityConfig {
 	
 	 @Bean
 	    public UserDetailsService userDetailsService(PasswordEncoder passwordEncoder) {
-	        UserDetails admin = User.withUsername("admin")
+	        UserDetails admin = User.withUsername("adminFiap")
 	            .password(passwordEncoder.encode("admin123"))
 	            .roles("ADMIN")
 	            .build();
@@ -50,7 +50,10 @@ public class SecurityConfig {
             .logout((logout) -> logout
                 .logoutUrl("/logout")
                 .logoutSuccessUrl("/login?logout=true")
-                .permitAll());
+                .permitAll())
+	        .exceptionHandling((exception) -> 
+			exception.accessDeniedHandler(
+					(request,response,AccessDeniedException) -> {response.sendRedirect("/acesso_negado");}));
 
         return http.build();
     }

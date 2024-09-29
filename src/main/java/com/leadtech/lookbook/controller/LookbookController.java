@@ -26,10 +26,6 @@ public class LookbookController {
 	@Autowired
 	private ClothingItemService clothingItemService;
 	
-	@GetMapping("/login")
-	public String login() {
-		return "login";
-	}
 
 	@GetMapping("/lookbooks")
 	public ModelAndView listarLookbooks() {
