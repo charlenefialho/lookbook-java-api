@@ -4,23 +4,25 @@
 <head th:replace="fragments :: head(title='Login')"></head>
 <body>
 	<div class="container">
+		
 		<h1>
-			<b><span th:text="#{nome_sistema}">Sistema de Futebol</span></b>
+			<b><span th:text="#{nome.sistema}">Login</span></b>
 		</h1>
+		<div th:replace="~{fragments :: mudar_idioma}" />
 		
 		<div th:if="${param.logout}">
-			<p style="color: green;"><b>Você saiu com sucesso</b>></p>
+			<p style="color: green;" th:text="#{mensagem.logout}"><b>Você saiu com sucesso</b>></p>
 		</div>
 		
 		<form th:action="@{/login}" method="post">
-			<span th:text="#{usuario_sistema}">Usuário:</span> <input class="form-control" type="text" id="username" name="username"><br>
-			<span th:text="#{senha_sistema}">Senha:</span> <input class="form-control" type="password" id="password" name="password"><br>
+			<span th:text="#{usuario.sistema}">Usuário</span> <input class="form-control" type="text" id="username" name="username"><br>
+			<span th:text="#{senha.sistema}">Senha</span> <input class="form-control" type="password" id="password" name="password"><br>
 			
 			<div th:if="${param.falha}">
-				<p style="color: red;"><b>Usuário e/ou senha inválidos</b></p>
+				<p style="color: red;" th:text="#{mensagem.falha}"><b>Usuário e/ou senha inválidos</b></p>
 			</div>
 			
-			<button type="submit"><span th:text="#{botao_logar}">Confirmar</span></button>
+			<button type="submit" class="btn btn-success"><span th:text="#{botao.logar}">Confirmar</span></button>
 		</form>
 
 	</div>

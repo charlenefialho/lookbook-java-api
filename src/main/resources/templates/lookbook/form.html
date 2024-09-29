@@ -5,20 +5,21 @@
 
 <body>
     <div class="container">
-        <h1 class="my-4">Novo Lookbook</h1>
+        <h1 class="my-4"  th:text="#{novo.lookbook.titulo}">Novo Lookbook</h1>
+		<div th:replace="~{fragments :: mudar_idioma}" />
         <form th:action="@{/lookbooks}" th:object="${lookbook}" method="post" class="form-group">
             <input type="hidden" th:field="*{id}" />
 
             <!-- Campo Nome -->
             <div class="mb-3">
-                <label for="nome" class="form-label">Nome do Lookbook</label>
-                <input type="text" id="nome" class="form-control" th:field="*{nome}" placeholder="Insira o nome do lookbook" />
+                <label for="nome" class="form-label" th:text="#{novo.lookbook.nome}">Nome do Lookbook</label>
+                <input type="text" id="nome" class="form-control" th:field="*{nome}" th:placeholder="#{novo.lookbook.placheolder}" placeholder="Insira o nome do lookbook" />
 				<div th:if="${#fields.hasErrors('nome')}" class="text-danger" th:errors="*{nome}"></div>
             </div>
 
             <!-- Campo Peças (Checkboxes) -->
             <div class="mb-3">
-                <label for="pecas" class="form-label">Selecione as Peças</label>
+                <label for="pecas" class="form-label" th:text="#{novo.lookbook.selecionar.pecas}">Selecione as Peças</label>
                 <div class="form-check" th:each="item : ${clothingItems}">
                     <input class="form-check-input" type="checkbox" th:field="*{clothingItems}" th:value="${item.id}" th:id="${'peca_' + item.id}">
                     <label class="form-check-label" th:for="${'peca_' + item.id}" th:text="${item.nome}"></label>
@@ -28,7 +29,8 @@
 
             <!-- Botão de Envio -->
             <div class="mt-4">
-                <button type="submit" class="btn btn-success">Salvar</button>
+                <button type="submit" class="btn btn-success" th:text="#{novo.lookbook.salvar}">Salvar</button>
+				<a href="/lookbooks" class="btn btn-primary" th:text="#{novo.lookbook.voltar}">Voltar</a>
             </div>
         </form>
     </div>

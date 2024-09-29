@@ -11,30 +11,49 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="my-4">Detalhes do Lookbook</h1>
+        <h1 class="my-4" th:text="#{detalhes.lookbook.titulo}">Detalhes do Lookbook</h1>
+		<div th:replace="~{fragments :: mudar_idioma}" />
         <div>
-            <h3>Nome do Lookbook:</h3>
+            <h3 th:text="#{detalhes.lookbook.nome}">Nome do Lookbook:</h3>
+			
             <p th:text="${lookbook.nome}"></p>
 
-            <h3>Peças:</h3>
+            <h3 th:text="#{detalhes.lookbook.pecas}">Peças:</h3>
             <div class="row">
                 <div class="col-md-4" th:each="item : ${lookbook.clothingItems}">
                     <div class="card mb-3">
-                        <img th:src="@{${item.imagemURL}}" alt="Imagem da peça" class="card-img-top clothing-item-img"/>
+                        <img th:src="@{${item.imagemURL}}" alt="Imagem da peça" class="card-img-top clothing-item-img img-fluid"/>
                         <div class="card-body">
-                            <h5 class="card-title" th:text="${item.nome}"></h5>
-                            <p class="card-text">Categoria: <span th:text="${item.categoria}"></span></p>
-                            <p class="card-text">Tamanho: <span th:text="${item.tamanho}"></span></p>
-                            <p class="card-text">Cor: <span th:text="${item.cor}"></span></p>
-                            <p class="card-text">Material: <span th:text="${item.material}"></span></p>
-                            <p class="card-text">Marca: <span th:text="${item.marca}"></span></p>
-                            <p class="card-text">Padrão: <span th:text="${item.padrao}"></span></p>
-                            <p class="card-text">Preço: R$ <span th:text="${item.preco}"></span></p>
+							<h5 class="card-title" th:text="${item.nome}"></h5>
+							<dl class="row">
+								<dt class="col-sm-3" th:text="#{detalhes.lookbook.categoria}">Categoria:</dt>
+								<dd class="col-sm-9" th:text="${item.categoria}"></dd>
+								
+								
+								<dt class="col-sm-3" th:text="#{detalhes.lookbook.tamanho}">Tamanho:</dt>
+								<dd class="col-sm-9" th:text="${item.tamanho}"></dd>
+								
+								<dt class="col-sm-3" th:text="#{detalhes.lookbook.cor}">Cor:</dt>
+								<dd class="col-sm-9" th:text="${item.cor}"></dd>
+								
+								<dt class="col-sm-3" th:text="#{detalhes.lookbook.material}">Material:</dt>
+								<dd class="col-sm-9"th:text="${item.material}"></dd>
+								
+								<dt class="col-sm-3" th:text="#{detalhes.lookbook.marca}">Marca:</dt>
+								<dd class="col-sm-9" th:text="${item.marca}"></dd>
+								
+								<dt class="col-sm-3" th:text="#{detalhes.lookbook.padrao}">Padrão:</dt>
+								<dd class="col-sm-9" th:text="${item.padrao}"></dd>
+								
+								<dt class="col-sm-3" th:text="#{detalhes.lookbook.preco}">Preço: R$</dt>
+								<dd class="col-sm-9" th:text="${item.preco}"></dd>
+							</dl>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+		<a href="/lookbooks" class="btn btn-primary mt-4" th:text="#{detalhes.lookbook.voltar}">Voltar</a>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"></script>

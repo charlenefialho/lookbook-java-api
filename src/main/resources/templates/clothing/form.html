@@ -3,21 +3,22 @@
 <head th:replace="fragments :: head(title='Nova Peça de Roupa')"></head>
 <body>
 	<div class="container">
-		<h1 class="my-4">Nova Peça de Roupa</h1>
+		<h1 class="my-4" th:text="#{nova.peca.titulo}">Nova Peça de Roupa</h1>
+		<div th:replace="~{fragments :: mudar_idioma}" />
 
 		<form th:action="@{/clothing}" th:object="${clothingItem}" method="post" class="form-group">
 			<input type="hidden" th:field="*{id}" />
 
 			<!-- Campo Nome -->
 			<div class="mb-3">
-				<label for="nome" class="form-label">Nome</label>
+				<label for="nome" class="form-label" th:text="#{nova.peca.nome}">Nome</label>
 				<input type="text" id="nome" class="form-control" th:field="*{nome}" />
 				<div class="text-danger" th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></div>
 			</div>
 
 			<!-- Campo Categoria -->
 			<div class="mb-3">
-				<label for="categoria" class="form-label">Categoria</label>
+				<label for="categoria" class="form-label" th:text="#{nova.peca.categoria}">Categoria</label>
 				<select id="categoria" class="form-select" th:field="*{categoria}">
 					<option th:each="cat : ${categorias}" th:value="${cat}" th:text="${cat}"></option>
 				</select>
@@ -26,14 +27,14 @@
 
 			<!-- Campo Cor -->
 			<div class="mb-3">
-				<label for="cor" class="form-label">Cor</label>
+				<label for="cor" class="form-label" th:text="#{nova.peca.cor}">Cor</label>
 				<input type="text" id="cor" class="form-control" th:field="*{cor}" />
 				<div class="text-danger" th:if="${#fields.hasErrors('cor')}" th:errors="*{cor}"></div>
 			</div>
 
 			<!-- Campo Tamanho -->
 			<div class="mb-3">
-				<label for="tamanho" class="form-label">Tamanho</label>
+				<label for="tamanho" class="form-label" th:text="#{nova.peca.tamanho}">Tamanho</label>
 				<select id="tamanho" class="form-select" th:field="*{tamanho}">
 					<option th:each="tam : ${tamanhos}" th:value="${tam}" th:text="${tam}"></option>
 				</select>
@@ -42,44 +43,45 @@
 
 			<!-- Campo Imagem URL -->
 			<div class="mb-3">
-				<label for="imagemURL" class="form-label">Imagem URL</label>
+				<label for="imagemURL" class="form-label" th:text="#{nova.peca.imagemURL}">Imagem URL</label>
 				<input type="text" id="imagemURL" class="form-control" th:field="*{imagemURL}" />
 			</div>
 
 			<!-- Campo Material -->
 			<div class="mb-3">
-				<label for="material" class="form-label">Material</label>
+				<label for="material" class="form-label" th:text="#{nova.peca.material}">Material</label>
 				<input type="text" id="material" class="form-control" th:field="*{material}" />
 				<div class="text-danger" th:if="${#fields.hasErrors('material')}" th:errors="*{material}"></div>
 			</div>
 
 			<!-- Campo Marca -->
 			<div class="mb-3">
-				<label for="marca" class="form-label">Marca</label>
+				<label for="marca" class="form-label"  th:text="#{nova.peca.marca}">Marca</label>
 				<input type="text" id="marca" class="form-control" th:field="*{marca}" />
 				<div class="text-danger" th:if="${#fields.hasErrors('marca')}" th:errors="*{marca}"></div>
 			</div>
 
 			<!-- Campo Preço -->
 			<div class="mb-3">
-				<label for="preco" class="form-label">Preço</label>
+				<label for="preco" class="form-label" th:text="#{nova.peca.preco}">Preço</label>
 				<input type="number" step="0.01" id="preco" class="form-control" th:field="*{preco}" />
 				<div class="text-danger" th:if="${#fields.hasErrors('preco')}" th:errors="*{preco}"></div>
 			</div>
 
 			<!-- Campo Sazonalidade -->
-			<label for="sazonalidade" class="mt-3">Sazonalidade</label>
+			<label for="sazonalidade" class="mt-3" th:text="#{nova.peca.sazonalidade}">Sazonalidade</label>
 			<select id="sazonalidade" class="form-select" th:field="*{sazonalidade}">
 				<option th:each="season : ${sazonalidades}" th:value="${season}" th:text="${season}"></option>
 			</select>
 
 			<!-- Campo Padrão -->
-			<label for="padrao" class="mt-3">Padrão</label>
+			<label for="padrao" class="mt-3" th:text="#{nova.peca.padrao}">Padrão</label>
 			<select id="padrao" class="form-select" th:field="*{padrao}">
 				<option th:each="standard : ${padroes}" th:value="${standard}" th:text="${standard}"></option>
 			</select>
 
-			<button type="submit" class="btn btn-success mt-4">Salvar</button>
+			<button type="submit" class="btn btn-success mt-4" th:text="#{nova.peca.salvar}">Salvar</button>
+			<a href="/clothing" class="btn btn-primary mt-4" th:text="#{nova.peca.voltar}">Voltar</a>
 		</form>
 	</div>
 </body>
