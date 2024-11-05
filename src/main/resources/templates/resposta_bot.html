@@ -2,27 +2,23 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 
 <head th:replace="fragments :: head(title='Resposta do botAssistant')"></head>
-
 <body>
 
-	<div class="container">
-
-		<div>
-			<h1><b>Resposta do ChatGPT</b></h1>
-		</div>
-		<br>
-		<div>
-			<h3><b>
-					<p th:text="${resposta}" style="color: green;"></p>
-				</b></h3>
-		</div>
-		<br>
-		<div>
-			<a href="/form_chat_gpt">Realizar uma nova pergunta</a>
+	<div class="container mt-5">
+		<div class="text-center mb-4">
+			<h1th:text="#{chatbot.title.resposta}"><b>Resposta</b></h1>
 		</div>
 
+		<div class="card p-4 shadow">
+			<div class="mb-3">
+				<h5 class="text-center" th:utext="${resposta}"></h5>
+			</div>
+			<div class="text-center">
+				<a href="/form_bot_assistant" class="btn btn-primary" th:text="#{chatbot.nova.pergunta}">Realizar uma nova pergunta</a>
+				<a href="/clothing" class="btn btn-primary mt-3" th:text="#{chatbot.voltar}">Voltar</a>
+			</div>
+		</div>
 	</div>
 
 </body>
-
 </html>
