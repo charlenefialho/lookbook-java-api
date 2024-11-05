@@ -49,7 +49,7 @@ Durante o desenvolvimento, surgiram alguns desafios que foram superados ao longo
 - Implementação de um bot assistente(integrado a API do chat gpt)
 
 # Vídeo
-[link do video]()
+[link do video](https://www.youtube.com/watch?v=ZUj-5MNA3l4)
 
 ## OBS:
 Adicionar no application.properties a API key do chat gpt spring.ai.openai.api-key
