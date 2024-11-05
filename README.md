@@ -45,13 +45,11 @@ Durante o desenvolvimento, surgiram alguns desafios que foram superados ao longo
 - CRUD de Lookbooks: O usuário pode criar, editar, visualizar detalhes e deletar lookbooks.
 - CRUD de Peças de Roupa: O usuário pode gerenciar suas peças de roupa associadas aos lookbooks.
 - Visualização Detalhada: Exibe informações detalhadas sobre cada lookbook e suas peças associadas, incluindo imagens e valores.
+- Fluxo de Autenticação do cliente (Admin poder ver os logs do actuator e user normal não)
+- Implementação de um bot assistente(integrado a API do chat gpt)
 
-
-## Próximos passos 
-- Fluxo de Autenticação do cliente
-- Refatoração da estilização dos templates (dar uma melhorada)
-- Tratamento de upload da  imagem no cadastro de peça
-- Implementação com nossa IA que faz sugestão de lookbooks
+# Vídeo
+[link do video]()
 
 ### Integrantes do grupo
 <table>
