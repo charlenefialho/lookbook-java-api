@@ -51,6 +51,9 @@ Durante o desenvolvimento, surgiram alguns desafios que foram superados ao longo
 # Vídeo
 [link do video]()
 
+## OBS:
+Adicionar no application.properties a API key do chat gpt spring.ai.openai.api-key
+
 ### Integrantes do grupo
 <table>
   <tr>
